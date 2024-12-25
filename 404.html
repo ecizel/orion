@@ -4,8 +4,11 @@
     <meta charset="utf-8" />
     <script>
       // Redireciona para o index.html mantendo o caminho original
-      const redirectTo = window.location.pathname.replace('/orion', '');
-      window.location.replace('/orion' + redirectTo);
+      if (!sessionStorage.getItem('redirected')) {
+        const redirectTo = window.location.pathname.replace('/orion', '');
+        window.location.replace('/orion' + redirectTo);
+        sessionStorage.setItem('redirected', 'true');
+}
     </script>
   </head>
   <body>
